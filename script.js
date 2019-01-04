@@ -24,9 +24,11 @@ window.onload = function() {
         }
 
     }
+    generate_link("Click on this line to view a basic static-layout version of this page. (If you're on a phone or don't want to use a CLI)", "http://www.google.ca");
     generate_space();
     
     generate_input();
+    
 };
 
 
@@ -38,6 +40,7 @@ function generate_input() {
     let user_id = document.createElement("label");
     user_id.innerHTML = 'root@eliu:' + sessionStorage.getItem('path') + '$&nbsp;';
     user_id.className = "inline-label";
+    user_id.style.color = "#4f82d6";
     
     
     let input = document.createElement('input');
@@ -113,13 +116,17 @@ function generate_output(input) {
         
     } else if (arr[0] == 'help') {
         generate_space();
-        generate_text("This is a command-line interface. Type your command next to the blinking cursor and press ENTER to execute your command.");
+        generate_text("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~", "#c4d64f")
+        generate_text("This is a command-line interface. Type your command next to the blinking cursor and press ENTER to execute your command.", "#c4d64f");
+        generate_text("Use the UPARROW or DOWNARROW to cycle through commands.", "#c4d64f");
+        generate_text("Note that to access a file, you must be in the same directory as the file.", "#c4d64f");
         generate_space();
-        generate_text("ls - lists the files and directories in your current directory. Assume that files with no extension are directories.");
-        generate_text("cd [dir] - navigates to the specified directory. Use .. to access parent directory");
-        generate_text("cat [filename] - opens the requested file");
-        generate_text("contact - displays my contact information");
-        generate_text("help - displays this help page");
+        generate_text("ls - lists the files and directories in your current directory. Assume that files with no extension are directories.", "#c4d64f");
+        generate_text("cd [dir] - navigates to the specified directory. Use cd .. to access parent directory", "#c4d64f");
+        generate_text("cat [filename] - opens the requested file", "#c4d64f");
+        generate_text("contact - displays my contact information", "#c4d64f");
+        generate_text("help - displays this help page", "#c4d64f");
+        generate_text("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~", "#c4d64f")
         generate_space();
         
     } else if (arr[0] == 'ls') {
@@ -156,9 +163,10 @@ function generate_output(input) {
 }
 
 
-function generate_text(input) {
+function generate_text(input, color = "white") {
     let paragraph = document.createElement("p");
     paragraph.innerHTML = input;
+    paragraph.style.color = color;
     document.getElementById('main').appendChild(paragraph);
 }
 
