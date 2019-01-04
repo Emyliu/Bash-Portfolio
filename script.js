@@ -1,6 +1,7 @@
 window.onload = function() {
     sessionStorage.setItem('first_load', 'true');
-    let welcome_messages = [Date(), "GNU bash, version 3.2.57(1)-release", "These shell commands are defined internally. Type 'help' to see this list.", "Contact me at emyliu@edu.uwaterloo.ca, or connect with my LinkedIn at https://www.linkedin.com/in/emyliu/"]
+    sessionStorage.setItem('path', '~');
+    let welcome_messages = ["Hi, my name is Edmond Liu. Welcome to my personal website!", "Login Time: " + Date(), "GNU bash (custom version), version 1.0.0", "The shell commands are defined internally. Type 'help' to see this list of commands.", "Contact me at emyliu@edu.uwaterloo.ca, or connect with my LinkedIn at https://www.linkedin.com/in/emyliu/"];
     for (let i = 0; i < welcome_messages.length; i++) {
         // create nodes for each line of the welcome messages.
         let paragraph = document.createElement("p");
@@ -14,7 +15,7 @@ window.onload = function() {
         increment();
         function increment() {
             if (pos < message.length) {
-            nodeList[i].innerHTML += message.charAt(pos)
+            nodeList[i].innerHTML += message[pos];
             pos++;
             setTimeout(increment, 20);
             }
@@ -35,7 +36,7 @@ function generate_input() {
     form.setAttribute("onsubmit", "loop(this); return false;");
     
     let user_id = document.createElement("label");
-    user_id.innerHTML = "root@eliu:~$&nbsp;";
+    user_id.innerHTML = 'root@eliu:' + sessionStorage.getItem('path') + '$&nbsp;';
     user_id.className = "inline-label";
     
     
@@ -61,11 +62,96 @@ function generate_input() {
 
 function loop(elem) {
     if (sessionStorage.getItem('first_load') == "false") {
-        console.log(elem.getElementsByClassName("invisible_textbox")[0].value);
+        elem.getElementsByClassName("invisible_textbox")[0].disabled = true;
+        let input = elem.getElementsByClassName("invisible_textbox")[0].value
+        generate_output(input);
         generate_input();
     }
     
 }
+
+function generate_output(input) {
+    let trimmed = input.replace(/\s+/g, ' ').trim()
+    let arr = trimmed.split(' ');
+    console.log(trimmed);
+    if (arr[0] == 'cd') {
+        if (arr.length == 1) {
+            sessionStorage.setItem('path', '~');
+        } else if (arr[1] == "..") {
+            sessionStorage.setItem('path', '~');
+        } else if (arr[1] == "Projects" && sessionStorage.getItem('path') == '~') {
+            sessionStorage.setItem('path', 'Projects');
+        } else if (arr[1] == "Resume" && sessionStorage.getItem('path') == '~') {
+            sessionStorage.setItem('path', 'Resume');
+        } else if (arr[1] == "About" && sessionStorage.getItem('path') == '~') {
+            sessionStorage.setItem('path', 'About');
+        }  else if (arr[1] == "../Projects" && sessionStorage.getItem('path') != '~') {
+            sessionStorage.setItem('path', 'Projects');
+        } else if (arr[1] == "../Resume" && sessionStorage.getItem('path') != '~') {
+            sessionStorage.setItem('path', 'Resume');
+        } else if (arr[1] == "../About" && sessionStorage.getItem('path') != '~') {
+            sessionStorage.setItem('path', 'About');
+        } else {
+            let err = "-bash: " + arr[0] + ": " + arr[1] + ": No such directory";
+            generate_text(err);
+        }
+    } else if (arr[0] == '') {
+        
+    } else if (arr[0] == 'help') {
+        generate_text("ls - lists the files and directories in your current directory. Assume that files with no extension are directories.");
+        generate_text("cd [dir] - navigates to the specified directory");
+        generate_text("cat [filename] - opens the requested file");
+        generate_text("help - displays this help page");
+        
+    } else if (arr[0] == 'ls') {
+        let path = sessionStorage.getItem('path');
+        if (arr.length > 1) {
+            let err = "-bash: " + arr[0] + ": expected 0 arguments";
+            generate_text(err);
+        } else {
+            let arr = listing[sessionStorage.getItem('path')];
+            let str = arr.join('&nbsp;&nbsp;&nbsp;&nbsp;');
+            generate_text(str);
+        }
+    } else if (arr[0] == 'cat') {
+        if (arr.length < 2) {
+            let err = "-bash: " + arr[0] + ": expected 1 arguments";
+            generate_text(err);
+        } else if (sessionStorage.getItem('path') == '~') {
+            let err = "-bash: " + arr[0] + ": " + arr[1] + ": No such file";
+            generate_text(err); 
+        } else {
+            let arr = listing[sessionStorage.getItem('path')];
+            console.log(arr);
+            let index = arr.findIndex(arr[1]);
+            if (index == -1) {
+                let err = "-bash: " + arr[0] + ": " + arr[1] + ": No such file";
+                generate_text(err); 
+            } else {
+                open_file(arr[1]);
+            }
+            
+        }
+    }
+    
+    else {
+        let err = "-bash: " + arr[0] + ": command not found";
+        generate_text(err);
+    }
+}
+
+
+function generate_text(input) {
+    let paragraph = document.createElement("p");
+    paragraph.innerHTML = input;
+    document.getElementById('main').appendChild(paragraph);
+}
+
+function open_file(input) {
+    
+}
+
+let listing = {'~' : ['Projects', 'Resume', 'About'], 'Projects' : ["Partylist.txt", "CitySnap.txt", "Casino++.txt", "ObscuraChess.txt"], 'About' : ["AboutMe.txt", "Music.txt"], 'Resume' : ["Skills.txt", "Experience.txt", "Contact.txt"]};
 
 
 
