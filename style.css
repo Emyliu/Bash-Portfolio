@@ -23,7 +23,17 @@ p {
     background: transparent;
     color: white;
     outline-width: 0;
-    
+}
+
+.invisible_button {
+    font-family: "Courier New";
+    border: none;
+    font-size: 1em;
+    background: transparent;
+    color: limegreen;
+    outline-width: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .inline-label {

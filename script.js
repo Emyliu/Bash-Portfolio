@@ -1,7 +1,9 @@
 window.onload = function() {
     sessionStorage.setItem('first_load', 'true');
     sessionStorage.setItem('path', '~');
-    let welcome_messages = ["Hi, my name is Edmond Liu. Welcome to my personal website!", "Login Time: " + Date(), "GNU bash (custom version), version 1.0.0", "The shell commands are defined internally. Type 'help' to see this list of commands.", "Contact me at emyliu@edu.uwaterloo.ca, or connect with my LinkedIn at https://www.linkedin.com/in/emyliu/"];
+      
+    
+    let welcome_messages = ["Hi, my name is Edmond Liu. Welcome to my terminal-themed personal website!", "Login Time: " + Date(), "Inspired by GNU bash, version 1.0.1b", "The shell commands are defined internally. Type 'help' to see this list of commands.", "To change the appearance of this terminal, type 'settings' into the prompt", "Source code for this website available at: https://github.com/Emyliu/Bash-Portfolio"];
     for (let i = 0; i < welcome_messages.length; i++) {
         // create nodes for each line of the welcome messages.
         let paragraph = document.createElement("p");
@@ -61,7 +63,13 @@ function generate_input() {
 function loop(elem) {
     if (sessionStorage.getItem('first_load') == "false") {
         elem.getElementsByClassName("invisible_textbox")[0].disabled = true;
-        let input = elem.getElementsByClassName("invisible_textbox")[0].value
+        let input = elem.getElementsByClassName("invisible_textbox")[0].value;
+        
+        if (input.trim() != "") {
+        commands.push(input);
+        command_index = commands.length - 1;
+        }
+        
         generate_output(input);
         generate_input();
     }
@@ -104,11 +112,15 @@ function generate_output(input) {
     
         
     } else if (arr[0] == 'help') {
+        generate_space();
+        generate_text("This is a command-line interface. Type your command next to the blinking cursor and press ENTER to execute your command.");
+        generate_space();
         generate_text("ls - lists the files and directories in your current directory. Assume that files with no extension are directories.");
         generate_text("cd [dir] - navigates to the specified directory. Use .. to access parent directory");
         generate_text("cat [filename] - opens the requested file");
         generate_text("contact - displays my contact information");
         generate_text("help - displays this help page");
+        generate_space();
         
     } else if (arr[0] == 'ls') {
         let path = sessionStorage.getItem('path');
@@ -127,11 +139,11 @@ function generate_output(input) {
         } else {
             let files = listing[sessionStorage.getItem('path')];
             let index = files.indexOf(arr[1]);
-            if (index == -1) {
+            if (index == -1 || sessionStorage.getItem('path') == '~') {
                 let err = "-bash: " + arr[0] + ": " + arr[1] + ": No such file";
                 generate_text(err); 
             } else {
-                open_file(files[index]);
+                open_file(arr[1]);
             }
             
         }
@@ -155,12 +167,80 @@ function generate_space() {
     document.getElementById("main").appendChild(br);
 }
 
-function open_file(input) {
-    console.log(input);
+function generate_link(input, url) {
+    console.log("URL given: " + url);
+    let button = document.createElement("button");
+    button.onclick = function() { window.open(url, '_blank'); return false};
+    button.innerHTML = input;
+    button.className = "invisible_button";
+    
+    
+    document.getElementById("main").appendChild(button);
 }
 
-let listing = {'~' : [], 'Projects' : ["Partylist.txt", "CitySnap.txt", "Casino++.txt", "ObscuraChess.txt"], 'About' : ["AboutMe.txt", "Music.txt"], 'Resume' : ["Skills.txt", "Experience.txt", "Contact.txt"]};
+function open_file(input) {
+    console.log("Input: " + input);
+    generate_space();
+    let arr = text_info[input];
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] == "\n") {
+            generate_space();
+        } else if (arr[i].substring(0,4) == "LINK") {
+            generate_link(arr[i].substring(4), link_info[input]);
+            // remove this line if you don't want a space after each buttton
+            generate_text("");
+        } else {
+            generate_text(arr[i]);
+        }
+    } 
+    generate_space();
+}
 
+
+let listing = {'~' : ["Projects", "Resume", "About"], 'Projects' : ["Partylist.txt", "CitySnap.txt", "Casino++.txt", "ObscuraChess.txt"], 'About' : ["AboutMe.txt", "Music.txt"], 'Resume' : ["Skills.txt", "Experience.txt"]};
+
+let text_info = {
+             "Partylist.txt" : ["LINKClick on this line to see a live demo at Partylist.xyz", "\n", "Partylist is a collaborative Spotify playlist creator and themed web player built with a JavaScript front-end and PHP + SQL backend.", "The web player features color blending with any song's album art in order to create a beautiful ambience.", "This app is built on top of Spotify's API endpoints and utilizes OAuth 2.0 for authentication with Spotify services."],
+             "CitySnap.txt" : ["LINKClick on this line to view the source code of CitySnap", "\n", "CitySnap is an iOS application that allows people in Toronto to easily report hazards and items needing repair to the city authoriries.", "It was developed during Elevate Hackathon 2018, and my main role was a backend developer.", "I wrote a grid system and ranking algorithm to combine reports in close proximity, and setup a Node.js server connected to Firebase for storage."],
+             "Casino++.txt" : ["LINKClick on this line to view the source code of Casino++", "\n", "Casino++ is a C++ console application that implements Las Vegas Blackjack with card-resplitting, as well as a poker hand analyzer.", "It is built upon Card, Player, and Game classes. Through this, I gained experience with Object Oriented techniques such as Inheritance and Data Abstraction", "I wrote a unit testing suite using the Catch2 testing framework."],
+             "ObscuraChess.txt" : ["LINKClick on this line to view the source code of ObscuraChess", "\n", "ObscuraChess is an intuitive voice interface for Amazon Alexa to play blindfold chess using algebraic chess notation.", "I augmented the existing Sunfish.py chess engine to support interrupted operation through voice interface, adjustable computation time, and a toggle to play as Black"],
+             "AboutMe.txt" : ["My name is Edmond Liu, and I'm a second-year computer science student at the University of Waterloo. I am currently working at IBM Canada with the Cloud Platform team as a application developer.", "I have experience with many aspects of software development, and my main focus right now is full-stack development."],
+             "Music.txt" : ["Heres a short list of my favorite songs at the moment: ", "Alvvays - Dreams Tonite", "Vallis Alps - Reprieve", "CHVRCHES - Wonderland", "Milk & Bone - KIDS"],
+             "Skills.txt" : ["Languages: C++, JavaScript, Python, C, CSS, HTML, SQL, Scheme", "Tools and Technologies: Bash scripting, Git, Angular, REST API, Node.js, Flask, JQuery, Bootstrap"],
+             "Experience.txt" : ["Home Trust Company: IT Engineering and Software Developer", "Developed employee vacation tracker in JS"]
+};
+
+let link_info = {
+            "Partylist.txt" : "http://www.partylist.xyz",
+            "CitySnap.txt" : "https://github.com/CitySnaps/CitySnap",
+            "Casino++.txt" : "https://github.com/Emyliu/CasinoPlusPlus",
+            "ObscuraChess.txt" : "https://github.com/Emyliu/ObscuraChess"
+};
+
+
+
+// This code is used to implement the arrowup and arrowdown to cycle through old commands in bash.
+
+window.addEventListener("keydown", commands, false);
+
+function commands(event) {
+    if (event.keyCode == 40) {
+        let max = commands.length
+        if (command_index < max - 1) {
+            command_index += 1;
+        }
+        document.getElementById('main').lastChild.getElementsByClassName('invisible_textbox')[0].value = commands[command_index];
+
+    } else if (event.keyCode == 38) {
+         if (command_index > 0) {
+             command_index -= 1;
+        }
+        document.getElementById('main').lastChild.getElementsByClassName('invisible_textbox')[0].value = commands[command_index];
+    }
+}
+
+var commands = [""]
+var command_index = 0;
 
 
     
