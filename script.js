@@ -22,9 +22,7 @@ window.onload = function() {
         }
 
     }
-    let br = document.createElement("br");
-    
-    document.getElementById("main").appendChild(br);
+    generate_space();
     
     generate_input();
 };
@@ -97,10 +95,19 @@ function generate_output(input) {
         }
     } else if (arr[0] == '') {
         
+    } else if (arr[0] == "contact") {
+        generate_space();
+        generate_text("Email: emyliu@edu.uwaterloo.ca");
+        generate_text("LinkedIn: https://www.linkedin.com/in/emyliu/");
+        generate_text("GitHub: https://github.com/Emyliu")
+        generate_space();
+    
+        
     } else if (arr[0] == 'help') {
         generate_text("ls - lists the files and directories in your current directory. Assume that files with no extension are directories.");
-        generate_text("cd [dir] - navigates to the specified directory");
+        generate_text("cd [dir] - navigates to the specified directory. Use .. to access parent directory");
         generate_text("cat [filename] - opens the requested file");
+        generate_text("contact - displays my contact information");
         generate_text("help - displays this help page");
         
     } else if (arr[0] == 'ls') {
@@ -117,18 +124,14 @@ function generate_output(input) {
         if (arr.length < 2) {
             let err = "-bash: " + arr[0] + ": expected 1 arguments";
             generate_text(err);
-        } else if (sessionStorage.getItem('path') == '~') {
-            let err = "-bash: " + arr[0] + ": " + arr[1] + ": No such file";
-            generate_text(err); 
         } else {
-            let arr = listing[sessionStorage.getItem('path')];
-            console.log(arr);
-            let index = arr.findIndex(arr[1]);
+            let files = listing[sessionStorage.getItem('path')];
+            let index = files.indexOf(arr[1]);
             if (index == -1) {
                 let err = "-bash: " + arr[0] + ": " + arr[1] + ": No such file";
                 generate_text(err); 
             } else {
-                open_file(arr[1]);
+                open_file(files[index]);
             }
             
         }
@@ -147,11 +150,16 @@ function generate_text(input) {
     document.getElementById('main').appendChild(paragraph);
 }
 
-function open_file(input) {
-    
+function generate_space() {
+    let br = document.createElement("br");
+    document.getElementById("main").appendChild(br);
 }
 
-let listing = {'~' : ['Projects', 'Resume', 'About'], 'Projects' : ["Partylist.txt", "CitySnap.txt", "Casino++.txt", "ObscuraChess.txt"], 'About' : ["AboutMe.txt", "Music.txt"], 'Resume' : ["Skills.txt", "Experience.txt", "Contact.txt"]};
+function open_file(input) {
+    console.log(input);
+}
+
+let listing = {'~' : [], 'Projects' : ["Partylist.txt", "CitySnap.txt", "Casino++.txt", "ObscuraChess.txt"], 'About' : ["AboutMe.txt", "Music.txt"], 'Resume' : ["Skills.txt", "Experience.txt", "Contact.txt"]};
 
 
 
