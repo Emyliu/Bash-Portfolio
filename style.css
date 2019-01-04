@@ -9,3 +9,17 @@ p {
     padding: 0;
 }
 
+.invisible_textbox {
+    width: 60%;
+    font-family: "Courier New";
+    border: none;
+    font-size: 1em;
+    background-color: #282828;
+    color: white;
+    outline-width: 0;
+    
+}
+
+.inline-label {
+    display: inline-block;
+}
