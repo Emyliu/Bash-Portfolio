@@ -24,7 +24,7 @@ window.onload = function() {
         }
 
     }
-    generate_link("Click on this line to view a basic static-layout version of this page. (If you're on a phone or don't want to use a CLI)", "http://www.google.ca");
+    generate_link("Click on this line to view a basic static-layout version of this page. (If you're on a phone or don't want to use a CLI)", "static.html");
     generate_space();
     
     generate_input();

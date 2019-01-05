@@ -1,0 +1,33 @@
+body {
+    max-width:650px;
+    margin:40px auto;
+    padding:0 10px;
+    font:18px/1.5 -apple-system,BlinkMacSystemFont,"avenir next",avenir,"Segoe UI","lucida grande","helvetica neue",helvetica,"Fira Sans",roboto,noto,"Droid Sans",cantarell,oxygen,ubuntu,"franklin gothic medium","century gothic","Liberation Sans",sans-serif;
+    color: white;
+    background-image: url(backgrounds/two.png);
+    background-color: #282828;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat:no-repeat;
+}
+
+
+.text-button {
+    font-size: 1.5em;
+    color: white;
+    border: 0;
+}
+
+br {
+    line-height: 8px;
+}
+
+h2 {
+    color: #3663aa;
+}
+
+
+.Start {
+    margin-top: 20px;
+}
