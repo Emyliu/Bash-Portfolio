@@ -75,3 +75,47 @@ p {
 #main {
     margin: 0.5em;
 }
+
+#red_circle {
+    background-color: #f96256;
+    border-radius: 100%;
+    width: 1em;
+    height: 1em;
+    margin: 0 auto;
+    left: -47%;
+    position: inline-block;
+}
+
+#yellow_circle {
+    background-color: #fdbc3d;
+    border-radius: 100%;
+    width: 1em;
+    height: 1em;
+    margin: 0 auto;
+    left: -44%;
+    position:relative;
+    display: block;
+}
+
+#green_circle {
+    background-color: #33c948;
+    border-radius: 100%;
+    width: 1em;
+    height: 1em;
+    margin: 0 auto;
+    left: -41%;
+    position:relative;
+    display: block;
+}
+
+.buttons {
+    float: left;
+}
+
+.button_pic {
+    height: 0.875em;
+    margin-left: 0.5em;
+}
+
+
+

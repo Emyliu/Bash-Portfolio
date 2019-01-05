@@ -1,9 +1,10 @@
 window.onload = function() {
+    document.getElementById("dim").innerHTML = Math.floor(window.innerWidth / 16) + " x " + Math.floor(window.innerHeight / 16);
     sessionStorage.setItem('first_load', 'true');
     sessionStorage.setItem('path', '~');
       
     
-    let welcome_messages = ["Hi, my name is Edmond Liu. Welcome to my terminal-themed personal website!", "Login Time: " + Date(), "Inspired by GNU bash, version 1.0.1b", "The shell commands are defined internally. Type 'help' to see this list of commands.", "To change the appearance of this terminal, type 'settings' into the prompt", "Source code for this website available at: https://github.com/Emyliu/Bash-Portfolio"];
+    let welcome_messages = ["Hi, my name is Edmond Liu. Welcome to my terminal-themed personal website!", "Login Time: " + Date(), "Inspired by GNU bash, version 1.0.1b", "The shell commands are defined internally. Type 'help' to see this list of commands."];
     for (let i = 0; i < welcome_messages.length; i++) {
         // create nodes for each line of the welcome messages.
         let paragraph = document.createElement("p");
@@ -25,6 +26,8 @@ window.onload = function() {
 
     }
     generate_link("Click on this line to view a basic static-layout version of this page. (If you're on a phone or don't want to use a CLI)", "static.html");
+    generate_space();
+    generate_link("Click on this line to view the source code, available at: https://github.com/Emyliu/Bash-Portfolio", "https://github.com/Emyliu/Bash-Portfolio");
     generate_space();
     
     generate_input();
@@ -250,5 +253,13 @@ function commands(event) {
 var commands = [""]
 var command_index = 0;
 
+
+
+// This code is used to change the dimensions at the top.
+
+
+window.onresize = function() {
+    document.getElementById("dim").innerHTML = Math.floor(window.innerWidth / 16) + " x " + Math.floor(window.innerHeight / 16);
+}
 
     
