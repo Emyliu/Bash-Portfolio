@@ -1,13 +1,13 @@
 
 body {
-background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%) !important;
+    background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%) !important;
 background-repeat:no-repeat;
    background-attachment:fixed;
    background-position:center; 
+  text-align: center;
   padding-left: 20%;
   padding-right: 20%;
-  padding-top: 20px;
-  text-align: center;
+  padding-top: 3%;
 background-size: 100% 100%;
 }
 
@@ -48,10 +48,10 @@ h1 {
 }
 
 #particles-js{
-     position:absolute; width: 100%;
-     height: 100%; 
-     background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%) !important;
-     background-repeat: no-repeat;
-      background-size: cover;
-       background-position: 50% 50%;
+    position: fixed !important; 
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    margin-left: -20%;
+    margin-top: -20px;
 }
