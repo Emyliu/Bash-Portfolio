@@ -21,47 +21,36 @@ html {
 
 h1, h2, h3, h4, h5, p {
     font-family: 'Montserrat', sans-serif;
+    text-align: center
+}
+
+h1 {
+    font-size: 3.5rem !important;
 }
 
 .info-card {    
-      background-color: rgba(247, 247, 247, 0.4) !important;
+      background-color: rgba(247, 247, 247, 0.2) !important;
 }
 
-
-@-webkit-keyframes filter-animation {
-  0% {
-    -webkit-filter: sepia(0) saturate(2);
-  }
-  
-  50% {
-    -webkit-filter: sepia(1) saturate(8);
-  }
-  
-  100% {
-    -webkit-filter: sepia(0) saturate(2);
-  }
+.info-card:hover{
+    background-color: rgba(247, 247, 247, 0.4) !important;
 }
 
+.btn-fix {
+    padding: 2px;
+    border: none;
+    white-space: normal;
+}
 
-.module {
-    position: relative;
-  }
+*:focus {
+    outline-color: limegreen !important
+}
 
-
-  module.animated {
-    -webkit-animation: filter-animation 5s infinite;
-  }
-
-
-.module::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%) !important;
-    filter: grayscale(100%);
-  }
-  .module-inside {
-    /* This will make it stack on top of the ::before */
-    position: relative;
-  }
+#particles-js{
+     position:absolute; width: 100%;
+     height: 100%; 
+     background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%) !important;
+     background-repeat: no-repeat;
+      background-size: cover;
+       background-position: 50% 50%;
+}
