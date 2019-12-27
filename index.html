@@ -17,6 +17,7 @@
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <script src="index.js"></script>
 </head>
+
 <div id="particles-js"></div>
 <body>
   <div class="outer">
@@ -48,7 +49,7 @@
   <div class="row">
       <div class="col-sm-6">
           <div class="card mb-3 info-card">
-              <a href="#" class="btn btn-fix text-left">
+              <button class="btn btn-fix text-left" data-toggle="modal" data-target="#modalTwo">
               <div class="row no-gutters">
                 <div class="col-md-4">
                   <img src="./backgrounds/sonos.png" class="card-img my-auto" alt="...">
@@ -61,7 +62,7 @@
                   </div>
                 </div>
               </div>
-              </a>
+            </button>
             </div>
       </div>
       <div class="col-sm-6">
@@ -125,20 +126,21 @@
 
       <hr>
 
+
       <div class="row">
           <div class="col-sm-6">
             <div class="card mb-3 info-card">
               <div class="card-body">
-                <h5 class="card-title">Project Name Here</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <h5 class="card-title">Blaze</h5>
+                <p class="card-text">Analyze your GPS files for pace and elevation to take your training to the next level.</p>
               </div>
             </div>
           </div>
           <div class="col-sm-6">
             <div class="card mb-3 info-card">
               <div class="card-body">
-                <h5 class="card-title">Project Name Here</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <h5 class="card-title">PartyList</h5>
+                <p class="card-text">Create collaborative Spotify playlists at social gatherings with an intuitive web interface</p>
               </div>
             </div>
           </div>
@@ -149,16 +151,16 @@
             <div class="col-sm-6">
               <div class="card mb-3 info-card">
                 <div class="card-body">
-                  <h5 class="card-title">Project Name Here</h5>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                  <h5 class="card-title">Obscura Chess</h5>
+                  <p class="card-text">Play chess using voice commands against your Alexa-enabled smart device</p>
                 </div>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="card mb-3 info-card">
                 <div class="card-body">
-                  <h5 class="card-title">Project Name Here</h5>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                  <h5 class="card-title">GamePigeon Tools</h5>
+                  <p class="card-text">Computer vision tools to beat your friends in iMessage Word Games (Word Hunt and Anagrams)</p>
                 </div>
               </div>
             </div>
@@ -166,6 +168,90 @@
           </div>
         </div>
           </body>
+
+
+
+
+          <div class="modal fade" id="modalOne" role="dialog" aria-labelledby="exampleModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  ...
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal" id="modalTwo" tabindex="1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  ...
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade" id="modalThree" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  ...
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  ...
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
         
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </html>

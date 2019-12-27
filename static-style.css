@@ -58,6 +58,10 @@ h1 {
 .logo {
 }
 
+.modal-backdrop {
+    background-color: rgba(247, 247, 247, 0.5) !important;
+}
+
 .btn-fix {
     padding: 2px;
     border: none;
