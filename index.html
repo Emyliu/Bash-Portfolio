@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="static-style.css">
   <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
-  
+
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -38,11 +38,9 @@
     <p>Click on any card for more information</p>
   </div>
   <div class="buttons">
-    <button type="button" class="btn btn-outline-dark">Résumé</button>
-    <button type="button" class="btn btn-outline-dark">GitHub</button>
-    <button type="button" class="btn btn-outline-dark">LinkedIn</button>
-    <button type="button" class="btn btn-outline-dark">Email</button>
-    <button type="button" class="btn btn-outline-dark">Background Color</button>
+    <a type="button" class="btn btn-outline-dark" onclick=" window.open('file:///C:/Users/EDMOND/Desktop/Bash-Portfolio/Resume.pdf#','_blank')">Résumé</a>
+    <a type="button" class="btn btn-outline-dark" onclick=" window.open('https://github.com/Emyliu','_blank')">GitHub</a>
+    <a type="button" class="btn btn-outline-dark" onclick=" window.open('https://www.linkedin.com/in/emyliu/','_blank')" >LinkedIn</a>
   </div>
 </div>
 </div>
@@ -50,16 +48,16 @@
   <div class="row">
       <div class="col-sm-6">
           <div class="card mb-3 info-card">
-              <button class="btn btn-fix text-left" data-toggle="modal" data-target="#modalTwo">
+              <button class="btn btn-fix text-left" data-toggle="modal" data-target="#SonosModal">
               <div class="row no-gutters">
                 <div class="col-md-4">
-                  <img src="./backgrounds/sonos.png" class="card-img my-auto" alt="...">
+                  <img src="./backgrounds/Sonos.png" class="card-img my-auto" alt="...">
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
                     <h4 class="card-title">Sonos</h4>
                     <p class="card-text">(Incoming) Software Engineering Intern</p>
-                    <p class="card-text"><small class="text-muted">Summer 2020</small></p>
+                    <p class="card-text"><small class="text-muted">Summer 2020 | Seattle</small></p>
                   </div>
                 </div>
               </div>
@@ -68,16 +66,16 @@
       </div>
       <div class="col-sm-6">
           <div class="card mb-3 info-card">
-              <a href="#" class="btn btn-fix text-left">
+              <a href="#" class="btn btn-fix text-left"  data-toggle="modal" data-target="#SickKidsModal">
               <div class="row no-gutters">
                 <div class="col-md-4">
-                  <img src="./backgrounds/SickKidsLogo.png" class="card-img" alt="...">
+                  <img src="./backgrounds/SickKids.png" class="card-img" alt="...">
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
-                    <h4 class="card-title">SickKids Research Institute</h4>
-                    <p class="card-text">Developer Trainee in Computational Medicine</p>
-                    <p class="card-text"><small class="text-muted">Fall 2019</small></p>
+                    <h4 class="card-title">The Hospital for Sick Children</h4>
+                    <p class="card-text">Computational Medicine Developer</p>
+                    <p class="card-text"><small class="text-muted">Fall 2019 | Toronto</small></p>
                   </div>
                 </div>
               </div>
@@ -89,16 +87,16 @@
     <div class="row">
         <div class="col-sm-6">
             <div class="card mb-3 info-card">
-                <a href="#" class="btn btn-fix text-left">
+                <a href="#" class="btn btn-fix text-left"  data-toggle="modal" data-target="#IBMModal">
                 <div class="row no-gutters">
                   <div class="col-md-4">
-                    <img src="./backgrounds/ibeeemm.png" class="card-img" alt="...">
+                    <img src="./backgrounds/IBM.png" class="card-img" alt="...">
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
                       <h4 class="card-title">IBM</h4>
                       <p class="card-text">Software Engineering Intern</p>
-                      <p class="card-text"><small class="text-muted">Winter 2019</small></p>
+                      <p class="card-text"><small class="text-muted">Winter 2019 | Toronto</small></p>
                     </div>
                   </div>
                 </div>
@@ -107,16 +105,16 @@
         </div>
         <div class="col-sm-6">
             <div class="card mb-3 info-card">
-                <a href="#" class="btn btn-fix text-left">
+                <a href="#" class="btn btn-fix text-left"  data-toggle="modal" data-target="#HomeTrustModal">
                 <div class="row no-gutters">
                   <div class="col-md-4">
-                    <img src="./backgrounds/htcpng.png" class="card-img" alt="...">
+                    <img src="./backgrounds/HomeTrust.png" class="card-img" alt="...">
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
                       <h4 class="card-title">Home Trust Company</h4>
                       <p class="card-text">Software Developer</p>
-                      <p class="card-text"><small class="text-muted">Summer 2018</small></p>
+                      <p class="card-text"><small class="text-muted">Summer 2018 | Toronto</small></p>
                     </div>
                   </div>
                 </div>
@@ -131,22 +129,25 @@
       <div class="row">
           <div class="col-sm-6">
             <div class="card mb-3 info-card">
+              <a onclick=" window.open('http://blaze-app.net','_blank')">
               <div class="card-body">
                 <h5 class="card-title">Blaze</h5>
                 <p class="card-text">Analyze your GPS files for pace and elevation to take your training to the next level.</p>
               </div>
+              </a>
             </div>
           </div>
           <div class="col-sm-6">
             <div class="card mb-3 info-card">
+                <a onclick=" window.open('http://partylist.xyz','_blank')">
               <div class="card-body">
                 <h5 class="card-title">PartyList</h5>
                 <p class="card-text">Create collaborative Spotify playlists at social gatherings with an intuitive web interface</p>
               </div>
+              </a>
             </div>
           </div>
         </div>
-      
 
         <div class="row">
             <div class="col-sm-6">
@@ -159,10 +160,12 @@
             </div>
             <div class="col-sm-6">
               <div class="card mb-3 info-card">
+                  <a onclick=" window.open('https://github.com/Emyliu/GamePigeonTools','_blank')">
                 <div class="card-body">
                   <h5 class="card-title">GamePigeon Tools</h5>
                   <p class="card-text">Computer vision tools to beat your friends in iMessage Word Games (Word Hunt and Anagrams)</p>
                 </div>
+                </a>
               </div>
             </div>
           </div>
@@ -172,88 +175,81 @@
 
 
 
-
-          <div class="modal fade" id="modalOne" role="dialog" aria-labelledby="exampleModalLabel">
-            <div class="modal-dialog" role="document">
+          <div class="modal" id="SonosModal" tabindex="1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
                 <div class="modal-body">
-                  ...
+                  <h1>Sonos</h1>
+                  <br>
+                  <p>Going to be working at Sonos in Seattle for Spring 2020, first time doing an internship outside of the Toronto area so it will be a fun experience!</p>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="modal" id="modalTwo" tabindex="1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+          <div class="modal" id="SickKidsModal" tabindex="1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
                 <div class="modal-body">
-                  ...
+                  <h1>SickKids Research Institute</h1>
+                  <br>
+                  <p>During Fall 2019, I worked at the Peter Gilgan Center for Research and Learning in Toronto, which is the research facility associated with The Hospital for Sick Children</p>
+                  <p>I worked on full-stack development tasks for an initiative called CHILDdb, which is the largest longitudinal child health study ever done in Canada</p>
+                  <p>I developed various features for the CHILDdb web portal, such as an Amazon S3-based storage solution, database development, and a email-based password reset system</p>
+                  <p>Overall, it was a great experience and I worked with some interesting technologies like GraphQL and pure functional JS using a library called Ramda</p>
+ 
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="modal fade" id="modalThree" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+          <div class="modal" id="IBMModal" tabindex="1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
                 <div class="modal-body">
-                  ...
+                  <h1>IBM</h1>
+                  <br>
+                  <p>During Winter 2019, I worked at the IBM Software Lab in Markham, Ontario. I was a developer supporting Technical Account Managers (TAM), which focus on helping IBM clients worldwide</p>
+                  <p>In this role, I worked on full-stack development on various different toolsets in use, as the TAMs used different pieces of software spread in a microservice architecture</p>
+                  <p>With another intern, we created an extension to the microservices called Client-Notes, which lets TAMs more accurately track their customer engagements</p>
+                  <p>I also architected a single-sign-on and preferences saver that connected all the existing microservices together</p>
+                  <p>There was a lot to do every day at IBM. It was an amazing learning experience and definitely helped me get used to working with large codebases</p>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal" id="HomeTrustModal" tabindex="1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <h1>Home Trust Company</h1>
+                  <br>
+                  <p>For my first work term in Summer of 2018, I interned at Home Trust Company in Toronto</p>
+                  <p>In this role, I worked across various departments but worked the closest with the IT department, where I lead a project to transfer the server monitoring tools to one called SolarWinds</p>
+                  <p>I also worked with accounting to correct discrepancies in the IT budget, as well as developed a web-based vacation tracker as a research project</p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
               </div>
             </div>
           </div>
 
 
-          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  ...
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        
+
+
+
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </html>
         
