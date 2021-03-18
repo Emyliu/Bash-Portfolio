@@ -1,3 +1,4 @@
+/*
 window.onload = () => { const particlesJSON = {
     "particles": {
             "number": {
@@ -55,3 +56,4 @@ window.onload = () => { const particlesJSON = {
     
     particlesJS("particles-js", particlesJSON)
 }
+*/
